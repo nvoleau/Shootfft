@@ -1,0 +1,35 @@
+<div class="modal slide-in-up" ng-controller="newCtrl">
+  <header class="bar bar-header bar-secondary">
+    <button class="button button-clear button-primary" ng-click="close()">Annuler</button>
+    <h1 class="title">Nouvelle Compétition</h1>
+    <button class="button button-positive" ng-click="createNew()">Enregistrer</button>
+  </header>
+  <ion-content class="padding has-header">
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Discipline
+    </div>
+    <select ng-model="data.discipline">
+      <option>10 m</option>
+      <option selected>Carabine</option>
+      <option>TSV</option>
+    </select>
+  </label>
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Importance
+    </div>
+    <select ng-model="data.importance">
+      <option>Amicale</option>
+      <option selected>Départementale</option>
+      <option>Régionale</option>
+      <option>Nationale</option>
+      <option>Internationale</option>
+    </select>
+  </label>
+    <input type="text" placeholder="Lieu" ng-model="data.lieu">
+  <input type="date" ng-model="data.date">
+
+    <input type="text" placeholder="Description" ng-model="data.description">
+  </ion-content>
+</div>

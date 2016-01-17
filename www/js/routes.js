@@ -1,101 +1,52 @@
 angular.module('app.routes', [])
 
-.config(function($stateProvider, $urlRouterProvider) {
-
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
+ .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-    
-      
-        
-    .state('login', {
-      url: '/login',
-      templateUrl: 'templates/login.html',
-      controller: 'loginCtrl'
+    .state('auth', {
+      url: "/auth",
+      abstract: true,
+      templateUrl: "templates/auth.html"
     })
-        
-      
-    
-      
-        
-    .state('creationCompte', {
+    .state('auth.signin', {
+      url: '/signin',
+      views: {
+        'auth-signin': {
+          templateUrl: 'templates/auth-signin.html',
+          controller: 'SignInCtrl'
+        }
+      }
+    })
+    .state('auth.signup', {
       url: '/signup',
-      templateUrl: 'templates/creationCompte.html',
-      controller: 'creationCompteCtrl'
-    })
-        
-      
-    
-      
-        
-    .state('menu.listShoot', {
-      url: '/Listshoot',
       views: {
-        'side-menu21': {
-          templateUrl: 'templates/listShoot.html',
-          controller: 'listShootCtrl'
+        'auth-signup': {
+          templateUrl: 'templates/auth-signup.html',
+          controller: 'SignUpCtrl'
         }
       }
     })
-        
-      
-    
-      
-    .state('menu', {
-      url: '/side-menu21',
-      abstract:true,
-      templateUrl: 'templates/menu.html'
+    .state('bucket', {
+      url: "/bucket",
+      abstract: true,
+      templateUrl: "templates/bucket.html"
     })
-      
-    
-      
-        
-    .state('menu.creation', {
-      url: '/creation',
+    .state('bucket.list', {
+      url: '/list',
       views: {
-        'side-menu21': {
-          templateUrl: 'templates/creation.html',
-          controller: 'creationCtrl'
+        'bucket-list': {
+          templateUrl: 'templates/bucket-list.html',
+          controller: 'myListCtrl'
         }
       }
     })
-        
-      
-    
-      
-        
-    .state('competition', {
-      url: '/Competition',
-      templateUrl: 'templates/competition.html',
-      controller: 'competitionCtrl'
+    .state('bucket.completed', {
+      url: '/completed',
+      views: {
+        'bucket-completed': {
+          templateUrl: 'templates/bucket-completed.html',
+          controller: 'completedCtrl'
+        }
+      }
     })
-        
-      
-    
-      
-        
-    .state('tir', {
-      url: '/Tir',
-      templateUrl: 'templates/tir.html',
-      controller: 'tirCtrl'
-    })
-        
-      
-    
-      
-        
-    .state('seance', {
-      url: '/seance',
-      templateUrl: 'templates/seance.html',
-      controller: 'seanceCtrl'
-    })
-        
-      
-    ;
-
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
-
+    $urlRouterProvider.otherwise('/auth/signin');
 });

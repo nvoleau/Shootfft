@@ -1,0 +1,12 @@
+<ion-header-bar class="bar-positive">
+  <button class="button button-clear" ng-click="newTask()">Nouvelle seance</button>
+  <h1 class="title">Séances</h1>
+  <button class="button button-clear" ng-click="logout()">Logout</button>
+</ion-header-bar>
+<ion-content class="has-header padding" has-tabs="true" on-refresh="onRefresh()">
+  <span>{{ seances.discipline }}</span>
+  <span>{{ seances.date }}</span>
+   <span>
+       <a href="javascript:" ng-click="addSession()">Ajout</a>
+      </span>
+</ion-content>
