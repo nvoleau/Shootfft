@@ -202,6 +202,29 @@ angular.module('app.controllers', [])
      console.log(point);
 
     $rootScope.aTir.push(form);
+    $rootScope.tir += 1;
+
+    $rootScope.hide();
+  };
+  $scope.endSession = function() {
+    var session = $rootScope.session;
+    var tir = $rootScope.tir;
+    var point=this.data.point;
+    var horaire = this.data.horaire;
+
+    var form = {
+      session: session,
+      tir: tir,
+      point:point,
+      horaire:horaire
+    };
+
+    $scope.modal.hide();
+    $rootScope.show();
+    $rootScope.show("Pattientez...");
+
+
+    $rootScope.aTir.push(form);
     $rootScope.aSession.push($rootScope.aTir);
 
 	$rootScope.seances.aSession = $rootScope.aSession;
