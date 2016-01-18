@@ -5,18 +5,25 @@
 </ion-header-bar>
 <ion-content class="has-header padding" has-tabs="true" on-refresh="onRefresh()">
 
-<div class="card" ng-repeat="session in seances.aSession" >
-	{{session}}
-	<div class="card" ng-repeat="s in session" >
-	{{s.point}}
-    
-  </div>
-    
-  </div>
+
+<table class="table table-striped table-bordered">
+    <tr ng-repeat="session in seances.aSession" ng-init="items.total = 0"> <td> session {{$index+1}}</td>
+	<td ng-repeat="s in session" ng-init="items.total=items.total+s.point">
+	{{s.point}} <br><i> {{s.horaire}}</i>
+  </td>
+  <td>Total :{{items.total}}</td>
+  </tr>     
+    </table>
+
+<div class="row" ng-repeat="session in seances.aSession" ng-init="items.total = 0">
+    <div class="col">session {{$index+1}}</div>
+  	<div class="col"ng-repeat="s in session" ng-init="items.total=items.total+s.point">{{s.point}} <br><i> {{s.horaire}}</i></div>
+  	<div class="col">Total :{{items.total}}</div>
+</div>
 
 
-  <span>{{ seances.discipline }}</span>
-  <span>{{ seances.aSession }}</span>
+  <span>{{ seances.discipline }}</span> <br>
+
   <span>{{ seances.date }}</span>
    <span>
        <a href="javascript:" ng-click="addSession()">Ajout</a>
