@@ -6,15 +6,6 @@
 <ion-content class="has-header padding" has-tabs="true" on-refresh="onRefresh()">
 
 
-<table class="table table-striped table-bordered">
-    <tr ng-repeat="session in seances.aSession" ng-init="items.total = 0"> <td> session {{$index+1}}</td>
-	<td ng-repeat="s in session" ng-init="items.total=items.total+s.point">
-	{{s.point}} <br><i> {{s.horaire}}</i>
-  </td>
-  <td>Total :{{items.total}}</td>
-  </tr>     
-    </table>
-
 <div class="row" ng-repeat="session in seances.aSession" ng-init="items.total = 0">
     <div class="col">session {{$index+1}}</div>
   	<div class="col"ng-repeat="s in session" ng-init="items.total=items.total+s.point">{{s.point}} <br><i> {{s.horaire}}</i></div>
