@@ -1,4 +1,4 @@
-angular.module('app', ['ionic', 'firebase', 'app.controllers'])
+angular.module('app', ['ionic', 'firebase', 'app.controllers','ionic-material', 'ionMdInput'])
 
 .run(function($ionicPlatform, $rootScope, $firebaseAuth, $firebase, $window, $ionicLoading) {
     $ionicPlatform.ready(function() {

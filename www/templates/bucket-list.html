@@ -4,7 +4,8 @@
   <button class="button button-clear" ng-click="logout()">Logout</button>
 </ion-header-bar>
 <ion-content class="has-header padding" has-tabs="true" on-refresh="onRefresh()">
-  <div class="card" ng-repeat="item in list" id="{{item.key}}" >
+  
+<!--   <div class="card" ng-repeat="item in list" id="{{item.key}}" >
     <div class="item item-text-wrap">
       <span><a href="#/seances/{{item.key}}">{{ item.discipline}}</a></span>
       <br/>  <br/>
@@ -13,7 +14,20 @@
         <i class="ion-trash-b icon-actions margin" ng-click="deleteItem('{{item.key}}')"></i>
       </p>
     </div>
-  </div>
+  </div> -->
+
+  <div class="list">
+    <a class="item item-avatar" href="#/seances/{{item.key}}" ng-repeat="item in list" id="{{item.key}}" >
+      <img src="img/material1.jpg"> {{ item.discipline}}
+    </a>
+    <!--  <br/>  <br/>
+      <p class="actions padding">
+        <i class="ion-checkmark-circled icon-actions margin" ng-click="markCompleted('{{item.key}}')"></i>
+        <i class="ion-trash-b icon-actions margin" ng-click="deleteItem('{{item.key}}')"></i>
+      </p>
+  </ion-item>-->
+</div>
+
   <div class="card" >
     <div class="item item-text-wrap" ng-show="noData">
       <span>
