@@ -1,6 +1,6 @@
 <ion-header-bar class="bar-positive">
   <button class="button button-clear" ng-click="newTask()">New</button>
-  <h1 class="title">My Bucket List</h1>
+  <h1 class="title">Mes Séances</h1>
   <button class="button button-clear" ng-click="logout()">Logout</button>
 </ion-header-bar>
 <ion-content class="has-header padding" has-tabs="true" on-refresh="onRefresh()">
@@ -18,7 +18,7 @@
 
   <div class="list">
     <a class="item item-avatar" href="#/seances/{{item.key}}" ng-repeat="item in list" id="{{item.key}}" >
-      <img src="img/material1.jpg"> {{ item.discipline}}
+      <img src="img/{{item.discipline}}.jpg"> {{item.discipline}} <br><i>{{item.importance}}</i> {{item.date}}
     </a>
     <!--  <br/>  <br/>
       <p class="actions padding">
